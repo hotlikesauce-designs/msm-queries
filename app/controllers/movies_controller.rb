@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
   def show
     the_id = params.fetch("the_id")
     
-    @matching_records = Director.where({ :id => the_id })
-    @the_director = @matching_records.first
+    @matching_records = Movie.where({ :id => the_id })
+    @the_movie = @matching_records.first
 
     render({ :template => "movie_templates/details"})
   end
