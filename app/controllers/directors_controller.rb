@@ -7,7 +7,8 @@ class DirectorsController < ApplicationController
   def show
     the_id = params.fetch("the_id")
     
-    @x = Director.where({:id=>the_id})
+    @matching_records = Director.where({ :id => the_id })
+    @the_director = @matching_records.first
 
     render({ :template => "director_templates/details"})
   end
