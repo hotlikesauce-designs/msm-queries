@@ -6,7 +6,7 @@
   <th>Image</th>
   <th>Name</th>
   <th>Dob</th>
-  <th></th>
+  <th>Director</th>
   </tr>
 
   <% Movie.all.each do |a_movie| %>
@@ -17,6 +17,8 @@
       </td>
       <td> <%=a_movie.title%> </td>
       <td> <%=a_movie.year%> </td>
+      <% matching_records = Director.where({:id => a_movie.director_id}) %>
+      <td><%= matching_records.first.name %> </td>
       <td>
       <a href="/movies/<%=a_movie.id%>">Show details</a>
       </td>
